@@ -3,26 +3,26 @@
 #include <string.h>
 #include <math.h>
 
-void encryptText(int p, int q, char m[]);
+void encryptText(long double p, long double q, unsigned char m[]);
 
 int main(){
-	int P=11, Q=13;
-	char text1[]="ENCRYPTION";
-	char text2[]="RASTAMAN";
+	long double P=11, Q=13;
+	unsigned char text1[]="ENCRYPTION";
+	unsigned char text2[]="RASTAMAN";
 	encryptText(P,Q,text1);
 	printf("\n\n");
 	encryptText(P,Q,text2);
 	return 0;
 }
 
-void encryptText(int p, int q, char m[]){
-	int E=7;
-	int D=223;
-	int ctr;
-	int n = p*q;
+void encryptText(long double p, long double q, unsigned char m[]){
+	long double E=7;
+	long double D=7;
+	long int ctr;
+	long double n = p*q;
 	double temporary;
 	
-	printf("Before Encryption: ENCRYPTION\n");
+	printf("Before Encryption: %s\n",m);
 	printf("After Encryption: ");
 	
 	for(ctr=0; m[ctr]!='\0';ctr++){
@@ -34,6 +34,7 @@ void encryptText(int p, int q, char m[]){
 	
 	printf("\n");
 	printf("After Decryption: ");
+	
 	for(ctr=0; m[ctr]!='\0';ctr++){
 		temporary = pow(m[ctr],D);
 		temporary = fmod(temporary, n);
